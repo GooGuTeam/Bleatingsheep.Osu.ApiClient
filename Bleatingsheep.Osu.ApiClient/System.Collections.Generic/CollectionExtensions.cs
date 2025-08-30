@@ -8,7 +8,7 @@ namespace System.Collections.Generic
     {
         public static TValue GetValueOrDefault<TKey, TValue>(this IReadOnlyDictionary<TKey, TValue> dictionary, TKey key)
         {
-            return dictionary.GetValueOrDefault(key, default(TValue));
+            return CollectionExtensions.GetValueOrDefault(dictionary, key, default(TValue));
         }
 
         public static TValue GetValueOrDefault<TKey, TValue>(this IReadOnlyDictionary<TKey, TValue> dictionary, TKey key, TValue defaultValue)

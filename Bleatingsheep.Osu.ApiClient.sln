@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bleatingsheep.Osu.ApiClient
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bleatingsheep.Osu.ApiClient.Tests.Console", "Bleatingsheep.Osu.ApiClient.Tests.Console\Bleatingsheep.Osu.ApiClient.Tests.Console.csproj", "{E593106C-B405-4283-9609-3AE4CF5C63FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bleatingsheep.Osu.Enums", "Bleatingsheep.Osu.Enums\Bleatingsheep.Osu.Enums\Bleatingsheep.Osu.Enums.csproj", "{D89EC8DB-77E3-4BCB-88DB-F0D919F17F24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E593106C-B405-4283-9609-3AE4CF5C63FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E593106C-B405-4283-9609-3AE4CF5C63FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E593106C-B405-4283-9609-3AE4CF5C63FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D89EC8DB-77E3-4BCB-88DB-F0D919F17F24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D89EC8DB-77E3-4BCB-88DB-F0D919F17F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D89EC8DB-77E3-4BCB-88DB-F0D919F17F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D89EC8DB-77E3-4BCB-88DB-F0D919F17F24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

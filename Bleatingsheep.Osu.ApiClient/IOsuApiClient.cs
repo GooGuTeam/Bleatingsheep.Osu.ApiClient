@@ -12,7 +12,7 @@ using WebApiClient.DataAnnotations;
 
 namespace Bleatingsheep.Osu.ApiClient
 {
-    [HttpHost("https://osu.ppy.sh/api/")]
+    [HttpHost("https://lazer-api.g0v0.top/api/v1/")]
 #if DEBUG
     [TraceFilter(OutputTarget = OutputTarget.Console)]
 #else
@@ -24,19 +24,19 @@ namespace Bleatingsheep.Osu.ApiClient
         [OneElementArrayJsonReturn]
         [AddUrlQueryFilter("type", "id")]
         Task<UserInfo> GetUser(
-            [AliasAs("u")]int id,
-            [AliasAs("m")]Mode mode = Mode.Standard,
-            [AliasAs("event_days")]int eventDays = 1
-            );
+            [AliasAs("u")] int id,
+            [AliasAs("m")] Mode mode = Mode.Standard,
+            [AliasAs("event_days")] int eventDays = 1
+        );
 
         [HttpGet("get_user")]
         [OneElementArrayJsonReturn]
         [AddUrlQueryFilter("type", "string")]
         Task<UserInfo> GetUser(
-            [Required, AliasAs("u")]string name,
-            [AliasAs("m")]Mode mode = Mode.Standard,
-            [AliasAs("event_days")]int eventDays = 1
-            );
+            [Required, AliasAs("u")] string name,
+            [AliasAs("m")] Mode mode = Mode.Standard,
+            [AliasAs("event_days")] int eventDays = 1
+        );
 
         [OneElementArrayJsonReturn]
         [HttpGet("get_beatmaps")]
@@ -287,7 +287,8 @@ namespace Bleatingsheep.Osu.ApiClient
     internal sealed class UtcDateTimeAttribute : Attribute, IApiParameterAttribute
     {
         public UtcDateTimeAttribute()
-        { }
+        {
+        }
 
         public Task BeforeRequestAsync(ApiActionContext context, ApiParameterDescriptor parameter)
         {
@@ -296,8 +297,11 @@ namespace Bleatingsheep.Osu.ApiClient
             {
                 context.RequestMessage.AddUrlQuery(
                     parameter.Name,
-                    Convert.ToString(convertedValue?.ToUniversalTime().ToString("yyyy-M-d H:m:s", CultureInfo.InvariantCulture), CultureInfo.InvariantCulture));
+                    Convert.ToString(
+                        convertedValue?.ToUniversalTime().ToString("yyyy-M-d H:m:s", CultureInfo.InvariantCulture),
+                        CultureInfo.InvariantCulture));
             }
+
             return Task.CompletedTask;
         }
     }
@@ -387,6 +391,7 @@ namespace Bleatingsheep.Osu.ApiClient
             {
                 apiKey = _apiKey;
             }
+
             context.RequestMessage.AddUrlQuery("k", apiKey);
             //return base.OnBeginRequestAsync(context);
             return Task.CompletedTask;

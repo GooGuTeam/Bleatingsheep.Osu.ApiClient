@@ -259,6 +259,11 @@ namespace Bleatingsheep.Osu.ApiClient
 
         internal static IReadOnlyDictionary<string, string> Alpha2 => countries;
 
-        public static string CountryOf(string code) => Alpha2.GetValueOrDefault(code.ToUpperInvariant(), code);
+        public static string CountryOf(string code)
+        {
+            if (Alpha2.TryGetValue(code.ToUpperInvariant(), out var name))
+                return name;
+            return code;
+        }
     }
 }
